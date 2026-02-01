@@ -1,0 +1,571 @@
+/* ===============================
+   GLOBAL RESET & BASE STYLES
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f3f2ef;
+  color: #1c1e21;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   LOGIN SCREEN
+================================ */
+#auth {
+  width: 360px;
+  margin: 120px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#auth h2 {
+  margin-bottom: 20px;
+  color: #0a66c2;
+}
+
+#auth input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#auth button {
+  width: 100%;
+  padding: 10px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#auth button:hover {
+  background: #084c94;
+}
+
+/* ===============================
+   TOP NAVBAR
+================================ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0a66c2;
+}
+
+.nav-buttons button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 4px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.nav-buttons button:hover {
+  background: #eef3f8;
+}
+
+/* ===============================
+   SEARCH BAR
+================================ */
+.search-wrapper {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+}
+
+#searchBar {
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.search-results {
+  position: absolute;
+  top: 42px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.search-item img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.search-item:hover {
+  background: #f3f2ef;
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+.page {
+  padding-top: 90px;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ===============================
+   SIDEBAR PROFILE
+================================ */
+.sidebar {
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.profile-summary {
+  text-align: center;
+  cursor: pointer;
+}
+
+.mini-banner {
+  height: 60px;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  border-radius: 10px 10px 0 0;
+}
+
+.sidebar-profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-top: -45px;
+  border: 4px solid white;
+  object-fit: cover;
+}
+
+.bio {
+  font-size: 14px;
+  color: #555;
+}
+
+.location {
+  font-size: 13px;
+  color: #777;
+}
+
+.rating {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* ===============================
+   FEED & POSTS
+================================ */
+.feed {
+  flex: 1;
+}
+
+.post-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.post-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.post-pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.post-skill {
+  font-size: 12px;
+  color: #65676b;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #65676b;
+}
+
+.post-actions button:hover {
+  color: #0a66c2;
+}
+
+/* ===============================
+   EXPLORE PAGE
+================================ */
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.explore-card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.explore-card:hover {
+  transform: translateY(-5px);
+}
+
+.explore-profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.explore-skill {
+  font-size: 13px;
+  color: gray;
+}
+
+.explore-works {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.explore-works img {
+  width: 70px;
+  height: 70px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ===============================
+   CLASSES PAGE
+================================ */
+.classes-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.classes-left,
+.classes-center,
+.classes-right {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.class-card {
+  background: #f3f2ef;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.join-btn {
+  background: #0a66c2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+/* ===============================
+   TO-DO LIST
+================================ */
+.todo-note {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border-left: 4px solid #0a66c2;
+}
+
+.plus-btn {
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin-top: 10px;
+}
+
+/* ===============================
+   MESSAGES
+================================ */
+
+.chat-list {
+  width: 300px;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.chat-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.chat-item:hover {
+  background: #f3f2ef;
+}
+
+.chat-item.active {
+  background: #e7f3ff;
+}
+
+.chat-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-item b {
+  font-size: 14px;
+}
+
+.chat-item p {
+  font-size: 12px;
+  color: gray;
+  margin-top: 4px;
+}
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.chat-window h3 {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+}
+.message.other {
+  align-self: flex-start;
+  background: #eef3f8;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 12px 12px 12px 0;
+  max-width: 60%;
+  font-size: 14px;
+}
+.message.me {
+  align-self: flex-end;
+  background: #0a66c2;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px 12px 0 12px;
+  max-width: 60%;
+  font-size: 14px;
+}
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  padding: 8px 16px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.messages-container {
+  display: flex;
+  height: calc(100vh - 80px);
+  background: #f3f2ef;
+}
+
+/*classes*/
+
+.classes-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.classes-left,
+.classes-center,
+.classes-right {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.class-card {
+  background: #f3f2ef;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.join-btn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===============================
+   notifi
+================================ */
+
+.notifications-container {
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.notification-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.notification-card.unread {
+  background: #eef6ff;
+  border-left: 4px solid #0a66c2;
+}
+
+.notification-pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.notification-text {
+  font-size: 14px;
+}
+
+.notification-text .time {
+  font-size: 12px;
+  color: gray;
+}
+
+/* ===============================
+   PROFILE PAGE
+================================ */
+.profile {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+.banner {
+  height: 140px;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  border-radius: 12px;
+}
+
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-top: -55px;
+  border: 5px solid white;
+}

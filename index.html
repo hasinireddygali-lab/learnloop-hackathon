@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LearnLoop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="auth">
+  <h2>Login to LearnLoop</h2>
+  <input type="text" id="username" placeholder="Username"><br><br>
+  <input type="password" id="password" placeholder="Password"><br><br>
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" style="display:none;">
+
+  <!-- TOP NAVBAR -->
+  <div class="topbar">
+    <div class="logo">LearnLoop</div>
+
+    <div class="search-wrapper">
+      <input
+        id="searchBar"
+        placeholder="Search people or skills"
+        oninput="searchUsers()"
+
+      >
+      <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('explore')">Explore</button>
+      <button onclick="showSection('classes')">Classes</button>
+      <button onclick="showSection('messages')">Messages</button>
+      <button onclick="showSection('notifications')">Notifications</button>
+      <button onclick="showSection('profile')">Me</button>
+    </div>
+  </div>
+
+  <!-- HOME PAGE -->
+  <div id="home" class="page">
+    <div class="container">
+
+      <!-- SIDEBAR -->
+      <div class="sidebar profile-summary" onclick="showSection('profile')">
+
+        <div class="mini-banner"></div>
+
+        <img src="images/profile.png" class="sidebar-profile-pic" alt="Profile">
+
+        <h3 id="sidebarName">Your Name</h3>
+        <p class="bio">Tutor</p>
+        <p class="bio">Voilon</p>
+        <p class="location">📍 India</p>
+        <p class="rating">⭐ 4.8 rating</p>
+
+      </div>
+
+      <!-- FEED -->
+        <div class="feed">
+
+        <div class="post-card">
+          <div class="post-header">
+            <img src="images/aarav.jfif"
+     class="post-pic"
+     onclick="openUserProfile('aarav')"
+     style="cursor:pointer;">
+            <div>
+              <b>Aarav Sharma </b><br>
+              <span class="post-skill">Guitar Instructor</span>
+            </div>
+          </div>
+          <p>Guitar Instructor</p>
+          <img src="images/gituar.jpeg" class="post-image">
+          <div class="post-actions">
+  <button onclick="likePost(this)">👍 Like</button>
+  <button onclick="commentPost()">💬 Comment</button>
+  <button onclick="savePost()">🔖 Save</button>
+  <button onclick="sharePost()">🔗 Share</button>
+</div>
+
+        </div>
+
+
+        <div class="post-card">
+          <div class="post-header">
+            <img src="images/meera.jfif"
+     class="post-pic"
+     onclick="openUserProfile('meera')"
+     style="cursor:pointer;">
+            <div>
+              <b>Meera Gupta</b><br>
+              <span class="post-skill">Dance Instructor</span>
+            </div>
+          </div>
+          <p>💃 Bharatanatyam classes every weekend.</p>
+          <img src="images/dance.jpeg" class="post-image">
+          <div class="post-actions">
+  <button onclick="likePost(this)">👍 Like</button>
+  <button onclick="commentPost()">💬 Comment</button>
+  <button onclick="savePost()">🔖 Save</button>
+  <button onclick="sharePost()">🔗 Share</button>
+</div>
+
+        </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <img src="images/ananya.jfif" class="post-pic" onclick="openUserProfile(aarav)"
+  style="cursor:pointer;">
+      <div>
+        <b>Ananya Patel</b><br>
+        <span class="post-skill"> Artist</span>
+      </div>
+    </div>
+    <p>🎨 Sharing my latest Procreate illustration tips.</p>
+      <img src="images/art.jfif" class="post-image">
+      <div class="post-actions">
+  <button onclick="likePost(this)">👍 Like</button>
+  <button onclick="commentPost()">💬 Comment</button>
+  <button onclick="savePost()">🔖 Save</button>
+  <button onclick="sharePost()">🔗 Share</button>
+</div>
+
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <img src="images/karan.jfif" class="post-pic" onclick="openUserProfile(karan)"
+  style="cursor:pointer;">
+      <div>
+        <b>Karan reddy </b><br>
+        <span class="post-skill">Math Tutor</span>
+      </div>
+    </div>
+    <p>📘 Solving JEE-level math problems live tonight.</p>
+      <img src="images/math.png" class="post-image">
+      <div class="post-actions">
+  <button onclick="likePost(this)">👍 Like</button>
+  <button onclick="commentPost()">💬 Comment</button>
+  <button onclick="savePost()">🔖 Save</button>
+  <button onclick="sharePost()">🔗 Share</button>
+</div>
+
+    </div> 
+
+        <div class="post-card">
+          <div class="post-header">
+            <img src="images/rahul.jfif" class="post-pic" onclick="openUserProfile(rahul) "style="cursor:pointer;">
+            <div>
+              <b>Rahul Verma</b><br>
+              <span class="post-skill">Python Tutor</span>
+            </div>
+          </div>
+          <p>💻 Uploaded free Python notes for beginners.</p>
+          <img src="images/phython.jfif" class="post-image">
+          <div class="post-actions">
+            <button onclick="likePost(this)">👍 Like</button>
+            <button onclick="commentPost()">💬 Comment</button>
+            <button onclick="savePost()">🔖 Save</button>
+            <button onclick="sharePost()">🔗 Share</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT: TODO / STICKY NOTES -->
+    <div class="classes-right">
+  <h3>
+    📝 To‑Do
+    <button onclick="addTodo()" class="plus-btn">➕</button>
+  </h3>
+
+  <div id="todoList">
+    <div class="todo-note">✔ Complete Python Assignment</div>
+    <div class="todo-note">✔ Attend Dance Class</div>
+    <div class="todo-note">✔ Revise Guitar Chords</div>
+  </div>
+
+  <button onclick="saveTodos()" class="save-btn">💾 Save</button>
+</div>
+
+
+    </div>
+  </div>
+
+  <!-- EXPLORE PAGE -->
+  <div id="explore" class="page" style="display:none;">
+    <div class="explore-grid">
+
+      <div class="explore-card">
+        <img src="images/aarav.jfif" class="explore-profile-pic">
+        <h4> Hasini Reddy</h4>
+        <p class="explore-skill">Guitar Instructor</p>
+        <div class="explore-works">
+          <img src="images/gituar.jpeg">
+          <img src="images/gituar.jpeg">
+          <img src="images/gituar.jpeg">
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <img src="images/meera.jfif" class="explore-profile-pic">
+        <h4>Meera Gupta</h4>
+        <p class="explore-skill">Dance</p>
+        <div class="explore-works">
+          <img src="images/dance.jpeg">
+          <img src="images/dance.jpeg">
+          <img src="images/dance.jpeg">
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <img src="images/ananya.jfif" class="explore-profile-pic">
+        <h4>Ananya sharma </h4>
+        <p class="explore-skill">Artist</p>
+        <div class="explore-works">
+          <img src="images/art.jfif">
+          <img src="images/art.jfif">
+          <img src="images/art.jfif">
+        </div>
+      </div>
+
+      <div class="explore-card">
+        <img src="images/rahul.jfif" class="explore-profile-pic">
+        <h4>Rahul varma </h4>
+        <p class="explore-skill">Python Tutor </p>
+        <div class="explore-works">
+          <img src="images/phython.jfif">
+          <img src="images/phython.jfif">
+          <img src="images/phython.jfif">
+        </div>
+      </div>
+
+
+      <div class="explore-card">
+        <img src="images/karan.jfif" class="explore-profile-pic">
+        <h4>Karan Reddy</h4>
+        <p class="explore-skill">Math Tutor</p>
+        <div class="explore-works">
+          <img src="images/math.png">
+          <img src="images/math.png">
+          <img src="images/math.png">
+        </div>
+      </div>
+
+
+
+      <div class="explore-card">
+        <img src="images/nihari.jfif" class="explore-profile-pic">
+        <h4>Nihari Akilandeshwari</h4>
+        <p class="explore-skill"> C/C++ TUTOR </p>
+        <div class="explore-works">
+          <img src="images/clang.jfif">
+          <img src="images/clang.jfif">
+          <img src="images/clang.jfif">
+        </div>
+      </div>
+
+
+
+      <div class="explore-card">
+        <img src="images/arun.jfif" class="explore-profile-pic">
+        <h4>Arun Varma</h4>
+        <p class="explore-skill"> Music </p>
+        <div class="explore-works">
+          <img src="images/music 🎵.jfif">
+          <img src="images/music 🎵.jfif">
+          <img src="images/music 🎵.jfif">
+        </div>
+      </div>
+
+
+
+
+      <div class="explore-card">
+        <img src="images/priyanka.jfif" class="explore-profile-pic">
+        <h4>Priyanka Singh</h4>
+        <p class="explore-skill">Artist</p>
+        <div class="explore-works">
+          <img src="images/artwork.jfif">
+          <img src="images/artwork.jfif">
+          <img src="images/artwork.jfif">
+        </div>
+      </div>
+
+
+
+      <div class="explore-card">
+        <img src="images/abhiram.jfif" class="explore-profile-pic">
+        <h4> Abhiram Chalamalapalli </h4>
+        <p class="explore-skill">Nutritionist</p>
+        <div class="explore-works">
+          <img src="images/dietitian.jfif">
+          <img src="images/dietitian.jfif">
+          <img src="images/dietitian.jfif">
+        </div>
+      </div>
+
+
+
+      <div class="explore-card">
+        <img src="images/prameeth.jfif" class="explore-profile-pic">
+        <h4> Prameeth Reddy</h4>
+        <p class="explore-skill">Photographer</p>
+        <div class="explore-works">
+          <img src="images/photo.jfif">
+          <img src="images/photo.jfif">
+          <img src="images/photo.jfif">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CLASSES -->
+   <div id="classes" class="page" style="display:none;">
+  <div class="classes-container">
+
+    <!-- LEFT: SCHEDULED CLASSES -->
+    <div class="classes-left">
+      <h3>📅 Scheduled Classes</h3>
+
+      <div class="class-card">
+        <b>Python for Beginners</b><br>
+        Mentor: Rahul<br>
+        Time: Tomorrow 6–7 PM
+        <button class="join-btn">Join</button>
+      </div>
+
+      <div class="class-card">
+        <b>Classical Dance</b><br>
+        Mentor: Meera<br>
+        Time: Saturday 10–11 AM
+        <button class="join-btn">Join</button>
+      </div>
+    </div>
+
+    <!-- CENTER: ASSIGNMENTS & UPDATES -->
+    <div class="classes-center">
+      <h3>📢 Assignments & Updates</h3>
+
+      <div class="update-card">
+        📘 Python Assignment 1 uploaded
+      </div>
+
+      <div class="update-card">
+        💃 Practice video shared by Dance Mentor
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  <!-- MESSAGES -->
+  <div id="messages" class="page" style="display:none;">
+
+  <div class="messages-container">
+
+    <!-- LEFT: CHAT LIST -->
+    <div class="chat-list">
+
+      <div class="chat-item active" onclick="openChat(0)">
+        <img src="images/rahul.jfif" class="chat-pic">
+        <div>
+          <b>Rahul Verma</b>
+          <p>Python tutoring available?</p>
+        </div>
+      </div>
+
+      <div class="chat-item" onclick="openChat(1)">
+        <img src="images/meera.jfif" class="chat-pic">
+        <div>
+          <b>Meera Gupta</b>
+          <p>Dance class timings?</p>
+        </div>
+      </div>
+
+      <div class="chat-item" onclick="openChat(2)">
+        <img src="images/aarav.jfif" class="chat-pic">
+        <div>
+          <b>Aarav Sharma</b>
+          <p>Guitar batch details</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: CHAT WINDOW -->
+    <div class="chat-window">
+
+      <h3 id="chatName">Rahul Verma</h3>
+
+      <div id="chatMessages" class="chat-messages">
+        <!-- Messages will load from JS -->
+      </div>
+
+      <div class="chat-input">
+        <input type="text" placeholder="Type a message..." disabled>
+        <button disabled>Send</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <!-- NOTIFICATIONS -->
+  <div id="notifications" class="page" style="display:none;">
+  <div class="notifications-container">
+
+    <h2>Notifications</h2>
+
+    <div class="notification-card unread">
+      <img src="images/aarav.jfif" class="notification-pic">
+      <div class="notification-text">
+        <b>Aarav Sharma</b> started a new Guitar batch.<br>
+        <span class="time">2 hours ago</span>
+      </div>
+    </div>
+
+    <div class="post">
+    👤 <b>Ananya Patel</b> followed your profile.
+    <br><small>2 days ago</small>
+  </div>
+
+    <div class="notification-card unread">
+      <img src="images/meera.jfif" class="notification-pic">
+      <div class="notification-text">
+        <b>Meera Gupta</b> accepted your class request.<br>
+        <span class="time">Today</span>
+      </div>
+    </div>
+
+    <div class="post">
+    🎓 <b>Rahul Verma</b> uploaded new Python notes.
+    <br><small>Yesterday</small>
+  </div>
+
+
+    <div class="notification-card">
+      <img src="images/rahul.jfif" class="notification-pic">
+      <div class="notification-text">
+        <b>Rahul Verma</b> uploaded new Python notes.<br>
+        <span class="time">Yesterday</span>
+      </div>
+    </div>
+
+    <div class="notification-card">
+      <img src="images/ananya.jfif" class="notification-pic">
+      <div class="notification-text">
+        <b>Ananya Patel</b> liked your post.<br>
+        <span class="time">2 days ago</span>
+      </div>
+    </div>
+
+    <div class="post">
+    🔔 <b>Aarav Sharma</b> started a new Guitar batch.
+    <br><small>2 hours ago</small>
+  </div>
+
+
+    <div class="notification-card">
+      <img src="images/karan.jfif" class="notification-pic">
+      <div class="notification-text">
+        Your class <b>Math Tutoring</b> starts in 1 hour.<br>
+        <span class="time">Reminder</span>
+      </div>
+    </div>
+
+  <div class="post">
+    📩 <b>Meera Gupta</b> sent you a message about Dance classes.
+    <br><small>Today</small>
+  </div>
+
+  <div class="post">
+    ⭐ Your profile received a new rating (4.9).
+    <br><small>Yesterday</small>
+  </div>
+
+  <div class="post">
+    📅 Reminder: <b>Math Class</b> starts today at 6 PM.
+    <br><small>1 day ago</small>
+  </div>
+
+  </div>
+</div>
+
+
+  <!-- PROFILE PAGE -->
+
+
+  <div id="profile" class="page" style="display:none;">
+  <div class="profile">
+
+    <div class="banner"></div>
+
+    <img id="profilePic" src="images/profile.png" class="profile-pic">
+
+    <h2 id="fullName">Name</h2>
+    <p id="profileBio">Bio</p>
+    <p id="profileLocation">📍 Location</p>
+    <p id="profileRating">⭐ Rating</p>
+
+    <hr>
+
+    <h3>Skills</h3>
+    <p>Python, Guitar, Dance</p>
+
+    <h3>Interests</h3>
+    <p>Teaching, Creativity, Mentorship</p>
+
+  </div>
+
+
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
